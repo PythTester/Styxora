@@ -1,6 +1,6 @@
 # Add SRC Image Links
 
-**// Example :** 
+**Example:** 
 ```
 bitcoin: "assets/logos/BTCLogo.png"
 ```
