@@ -1,4 +1,4 @@
-# Add SRC Image Links
+# Add Image Links
 
 **Example:** 
 ```
