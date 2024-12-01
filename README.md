@@ -2,7 +2,8 @@
 
 # Overview
 - The Styxora Wallet Application is a cutting-edge digital wallet solution designed for managing cryptocurrency assets with unparalleled ease and security.
-- Built with user-centric features, this application empowers users to store, stake, and transfer digital assets like Ethereum (ETH), Binance Coin (BNB), and the Styxora token (STYX). With a sleek and intuitive interface, Styxora Wallet represents the future of decentralized finance (DeFi) by combining functionality, accessibility, and robust technology.
+- Built with user-centric features, this application empowers users to store, stake, and transfer digital assets like Ethereum (ETH), Binance Coin (BNB), and the Styxora token (STYX).
+- With a sleek and intuitive interface, Styxora Wallet represents the future of decentralized finance (DeFi) by combining functionality, accessibility, and robust technology.
 
 Key Features
 1. Multi-Asset Support
