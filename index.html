@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Mock Trading</a>
+            <a href="wallet.html" class="nav-link">Styxora Wallet</a>
+        </div>
+    </nav>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styxora</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+</head>
+<body>
+    
+    <header>
+        <div id="header-container">
+            <h1>Styxora</h1>
+            <div id="styx-rewards-box">
+                <p id="styx-balance">Styx Balance: 0.00</p>
+                <p id="last-reward" class="reward-label">Last Reward: 0.00 Styx</p>
+            </div>
+            
+            <div id="styx-swap-section">
+                <h3>Swap STYX</h3>
+                <input type="number" id="swap-styx-amount" placeholder="Enter STYX amount" />
+                <p id="exchange-display">$0.00 MUSD</p>
+                <button id="swap-styx-button">Swap</button>
+            </div>
+            
+            
+
+    </header>
+
+
+    <div id="quests">
+        <h2>Daily Quest</h2>
+        <ul id="quest-list">
+            <!-- Quests will be dynamically populated -->
+        </ul>
+    </div>
+
+    <main>
+        <section id="price-list">
+            <h2>Real-Time Cryptocurrency Prices</h2>
+            <table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cryptocurrency</th>
+                            <th>Price (USD)</th>
+                            <th>Hourly % Change</th>
+                        </tr>
+                    </thead>
+                    <tbody id="crypto-data"></tbody>
+                </table>
+                
+        </section>
+
+            <h3>Styxora Balances</h3>
+            <section id="balance">
+    <h2>Styxora Wallet</h2>
+    <p id="account-balance">MUSD Balance: $100,000.00</p>
+    <p id="crypto-value" style="font-size: 1rem; color: gray;">Crypto Value: $0.00</p>
+    <p id="total-wallet-balance">Total Wallet Value: $100,000</p>
+</section>
+
+                
+            </section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cryptocurrency</th>
+                        <th>Quantity</th>
+                        <th>Total Value (USD)</th>
+                    </tr>
+                </thead>
+                <tbody id="portfolio-data">
+                    <!-- Portfolio data will appear here -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="trading">
+            <h2>StyxSwap</h2>
+            <div>
+                <label for="crypto-select">Select a Token to Swap:</label>
+                <select id="crypto-select">
+                    <option value="bitcoin">Bitcoin</option>
+                    <option value="ethereum">Ethereum</option>
+                    <option value="binance-coin">Binance Coin</option>
+                    <option value="algorand">Algorand</option>
+                    <option value="solana">Solana</option>
+                    <option value="ripple">Ripple</option>
+                    <option value="cardano">Cardano</option>
+                    <option value="polkadot">Polkadot</option>
+                    <option value="dogecoin">Dogecoin</option>
+                </select>
+                
+            </div>
+            <div>
+                <label for="trade-amount">Enter Amount (MUSD):</label>
+            <input type="number" id="trade-amount" placeholder="Enter amount in MUSD" />
+            <p id="crypto-amount-display" class="crypto-display"></p>
+        </div>
+            <div>
+                <button id="buy-button">Buy</button>
+                <button id="sell-button">Sell</button>
+            </div>
+
+        <section id="chart">
+            <h2>Price Chart</h2>
+            <div id="tradingview-chart" style="height: 400px;"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
