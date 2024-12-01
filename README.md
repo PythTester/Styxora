@@ -125,11 +125,12 @@ DeFi Integration: Incorporating lending, borrowing, and yield farming capabiliti
 git clone https://github.com/your-repo/styxora-wallet.git
 Open index.html in your preferred browser.
 ```
-#Dependencies
+# Dependencies
+```
 Ethers.js for blockchain interactions.
 RPC endpoints for Ethereum and Binance Smart Chain via Ankr.
-
-#Contact Us
+```
+# Contact Us
 For inquiries, partnerships, or feedback, please reach out:
 
 Email: support@styxora.com
