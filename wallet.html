@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Mock Trading</a>
+            <a href="wallet.html" class="nav-link">Styxora Wallet</a>
+        </div>
+    </nav>
+    
+    <div id="staking-section" style="display: none;">
+        <h3>Staking STYX</h3>
+        <form id="stake-form">
+            <label for="stake-amount">Amount to Stake:</label>
+            <input type="number" id="stake-amount" step="0.01" min="0" required />
+            <button type="submit">Stake</button>
+        </form>
+        <div id="staked-info">
+            <p><strong>Staked Amount:</strong> <span id="staked-amount">0</span> STYX</p>
+            <p><strong>Rewards Earned:</strong> <span id="earned-rewards">0</span> STYX</p>
+            <button id="unstake-btn">Unstake All</button>
+        </div>
+    </div>
+    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Your Wallet</h1>
+    </header>
+    <main>
+        <div id="restore-wallet-section" style="display: none;">
+            <h3>Restore Wallet</h3>
+            <p>Enter your seed phrase below to restore your wallet:</p>
+            <textarea id="restore-seed-phrase" placeholder="Enter your seed phrase here..." rows="3" style="width: 100%;"></textarea>
+            <button id="restore-wallet-submit-btn">Restore Wallet</button>
+        </div>
+
+        <button id="logout-btn" style="display: none;">Logout Wallet</button>
+
+        <!-- Wallet Generation Section -->
+        <div id="wallet-setup-options">
+            <button id="generate-wallet-btn">Generate Wallet</button>
+            <button id="open-restore-btn">Restore Wallet</button>
+        </div>
+        
+
+        <div id="seed-section" style="display: none;">
+            <h3>Your Seed Phrase</h3>
+            <p id="seed-phrase"></p>
+            <button id="confirm-seed-btn">I have saved my seed phrase</button>
+        </div>
+
+        <div id="wallet-details" style="display: none;">
+            <h3>Wallet Details</h3>
+            <p>Ethereum Address: <span id="eth-wallet-address"></span></p>
+            <p>BNB Address: <span id="bnb-wallet-address"></span></p>
+            <p>Ethereum Balance: <span id="eth-balance">0.0</span> ETH</p>
+            <p>BNB Balance: <span id="bnb-balance">0.0</span> BNB</p>
+        </div>
+
+        <ul id="token-balances">
+
+    <li><strong>Styxora Balance:</strong> <span id="Styxora-mainnet-balance">0.0</span> STYX</li>
+</ul>
+
+
+        <!-- Withdraw Section -->
+        <section id="withdraw-section" style="display: none;">
+            <h3>Withdraw Funds</h3>
+            <form id="withdraw-form">
+                <label for="withdraw-coin">Select Coin/Token:</label>
+                <select id="withdraw-coin">
+                    <option value="eth">Ethereum (ETH)</option>
+                    <option value="bnb">Binance Coin (BNB)</option>
+                </select>
+        
+                <label for="withdraw-address">Recipient Address:</label>
+                <input type="text" id="withdraw-address" placeholder="Enter recipient wallet address" required>
+        
+                <label for="withdraw-amount">Amount:</label>
+                <input type="number" id="withdraw-amount" placeholder="Enter amount to send" required>
+        
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <!-- Staking Section -->
+        <section id="staking-section" style="display: none;">
+            <h3>Staking Dashboard</h3>
+            <div>
+                <label for="stake-amount">Stake Amount:</label>
+                <input type="number" id="stake-amount" placeholder="Enter amount to stake" />
+                <button id="stake-btn">Stake</button>
+            </div>
+            <div>
+                <button id="claim-rewards-btn">Claim Rewards</button>
+            </div>
+            <div>
+                <label for="unstake-amount">Unstake Amount:</label>
+                <input type="number" id="unstake-amount" placeholder="Enter amount to unstake" />
+                <button id="unstake-btn">Unstake</button>
+            </div>
+            <p>Staked Balance: <span id="staked-balance">0.0</span> STYX</p>
+            <p>Available Rewards: <span id="available-rewards">0.0</span> STYX</p>
+        </section>
+
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <script src="wallet.js"></script>
+</body>
+</html>
