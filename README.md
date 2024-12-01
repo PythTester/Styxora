@@ -9,18 +9,18 @@
 
 # Key Features
 
-# 1. Multi-Asset Support
+**1. Multi-Asset Support**
 
 - Seamlessly manage multiple cryptocurrencies, including Ethereum, Binance Coin, and Styxora's native token (STYX).
 
 - Real-time updates on balances for all supported assets.
 
-# 2. Secure Wallet Generation
+**2. Secure Wallet Generation**
 
 - Generate unique wallets using industry-standard seed phrases.
 Enhanced privacy with locally stored seed phrases, ensuring users maintain full control of their funds.
 
-# 3. Staking Functionality
+**3. Staking Functionality**
 
 - Empower users to stake their Styxora tokens (STYX) and earn rewards.
 Real-time reward calculation and easy claim/unstake options.
