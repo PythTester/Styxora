@@ -98,6 +98,12 @@ Integration with Ethereum and Binance Smart Chain through Ankr's RPC services.
 
 - To democratize access to cryptocurrency and decentralized finance by creating a secure, user-friendly, and feature-rich wallet that empowers individuals to take control of their financial future.
 
+# Why Blockchain Matters
+
+- Blockchain is the technology behind cryptocurrency. It’s like a giant, unchangeable ledger that keeps track of every transaction. Because blockchain is decentralized (not controlled by a single company or government), it’s more secure and transparent than traditional systems.
+
+- Styxora Wallet gives you direct access to this technology. You don’t need to understand all the technical details—we’ve made it simple and user-friendly so anyone can use it.
+
 # Investor Value Proposition
 
 - Investing in the Styxora Wallet Application is an opportunity to be at the forefront of the cryptocurrency revolution. With its innovative features, strong technical foundation, and user-focused design, Styxora Wallet is poised to become a leader in the DeFi space.
