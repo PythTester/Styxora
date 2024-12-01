@@ -26,29 +26,29 @@ Enhanced privacy with locally stored seed phrases, ensuring users maintain full 
 Real-time reward calculation and easy claim/unstake options.
 Transparent APY rates with no hidden fees.
 
-# 4. Intuitive User Interface
+**4. Intuitive User Interface**
 
 - A modern, professional interface designed to cater to both beginner and advanced users.
  
 - Streamlined navigation between wallet functions, staking dashboard, and mock trading features.
   
-# 5. Restoration and Backup
+**5. Restoration and Backup**
 
 - Securely restore wallets using seed phrases, ensuring no funds are lost.
 Easy logout and restoration for switching between accounts.
 
-# 6. Mock Trading Integration
+**6. Mock Trading Integration**
 
 - Access to a mock trading platform for users to simulate cryptocurrency trading strategies without risk.
  
 # Technology Stack
 
-# Frontend:
+**Frontend:**
 HTML5 and CSS3 for a visually appealing and responsive user interface.
 
 - JavaScript and Ethers.js for seamless blockchain interactions.
 
-# Backend:
+**Backend:**
 Integration with Ethereum and Binance Smart Chain through Ankr's RPC services.
 
 - Smart contract interaction for staking and transferring assets.
@@ -61,7 +61,7 @@ Integration with Ethereum and Binance Smart Chain through Ankr's RPC services.
 
 # Use Cases
 
-# For Individual Users:
+**For Individual Users:**
 
 - Secure Wallet Management: An all-in-one platform for holding and managing digital assets.
   
@@ -70,11 +70,11 @@ Integration with Ethereum and Binance Smart Chain through Ankr's RPC services.
 - Hands-On Experience: Use the mock trading platform to test trading strategies risk-free.
 
  
-# For Developers:
+**For Developers:**
 
 - A robust foundation for integrating blockchain-based features into future decentralized applications.
 
-# For Investors:
+**For Investors:**
 
 - Styxora Wallet demonstrates the potential of DeFi by making it accessible and secure for all.
  
@@ -106,25 +106,25 @@ Integration with Ethereum and Binance Smart Chain through Ankr's RPC services.
 
 # Future Roadmap
 
-- Enhanced Token Support: Adding more cryptocurrencies and stablecoins to broaden asset management options.
+**Enhanced Token Support:** 
+Adding more cryptocurrencies and stablecoins to broaden asset management options.
 DeFi Integration: Incorporating lending, borrowing, and yield farming capabilities.
 
-# Cross-Platform Availability: 
+**Cross-Platform Availability:** 
 
 - Expanding the application to mobile devices (iOS and Android).
-Advanced Analytics: Providing users with insights into portfolio performance and market trends.
+
+**Advanced Analytics:** Providing users with insights into portfolio performance and market trends.
 
 # Getting Started
+**Installation**
 
-# Installation
-
-# Clone the repository:
-bash
-
+**Clone the repository:**
+```bash
 # Copy code
 git clone https://github.com/your-repo/styxora-wallet.git
 Open index.html in your preferred browser.
-
+```
 #Dependencies
 Ethers.js for blockchain interactions.
 RPC endpoints for Ethereum and Binance Smart Chain via Ankr.
