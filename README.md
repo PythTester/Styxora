@@ -117,17 +117,20 @@ Advanced Analytics: Providing users with insights into portfolio performance and
 # Getting Started
 
 # Installation
-Clone the repository:
+
+# Clone the repository:
 bash
-Copy code
+
+# Copy code
 git clone https://github.com/your-repo/styxora-wallet.git
 Open index.html in your preferred browser.
-Dependencies
+
+#Dependencies
 Ethers.js for blockchain interactions.
 RPC endpoints for Ethereum and Binance Smart Chain via Ankr.
-Contact Us
+
+#Contact Us
 For inquiries, partnerships, or feedback, please reach out:
 
 Email: support@styxora.com
 Website: www.styxora.com
-This README highlights the technical strengths and business potential of the Styxora Wallet. Let me know if you'd like to tailor it further!
