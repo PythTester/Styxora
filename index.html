@@ -1,123 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-link">Mock Trading</a>
-            <a href="wallet.html" class="nav-link">Styxora Wallet</a>
-        </div>
-    </nav>
-    
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styxora</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <title>Styxora Mock Blockchain</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="app">
+    <!-- Navigation -->
+    <nav>
+        <h1>Styxora Blockchain</h1>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('swap')">Swap</button>
+        <button onclick="showPage('dapps')">DApps</button>
+      </nav>
+      <div id="dashboard-container">
+        <!-- Market Feed -->
+        <div id="market-feed">
+          <h3>Market Feed</h3>
+          <div id="feed-updates">
+            <!-- Example Market Updates -->
+            <div class="market-item">
+              <p><strong>CONE</strong> $0.01</p>
+              <p>Change: +2.3%</p>
+            </div>
+            <div class="market-item">
+              <p><strong>MEGA</strong> $0.003</p>
+              <p>Change: +1.8%</p>
+            </div>
+            <div class="market-item">
+              <p><strong>ALPH</strong> $0.0022</p>
+              <p>Change: +3.5%</p>
+            </div>
+            <div class="market-item">
+              <p><strong>BETA</strong> $0.0015</p>
+              <p>Change: -0.5%</p>
+            </div>
+            <div class="market-item">
+              <p><strong>ZETA</strong> $0.001</p>
+              <p>Change: +4.0%</p>
+            </div>
+          </div>
+        </div>
+      
+
+        
+        <!-- Wallet Chart -->
+        <div id="wallet-chart-container">
+          <h3>Wallet Overview</h3>
+          <canvas id="wallet-chart"></canvas>
+        </div>
+      
+        <!-- Liquidity Info -->
+        <div id="liquidity-info">
+          <h3>Liquidity Information</h3>
+          <div id="liquidity-details">
+            <!-- Example Liquidity Details -->
+            <div class="liquidity-item">
+              <p><strong>CONE:</strong></p>
+              <p>Liquidity: 1,000 USD / 100,000 CONE</p>
+            </div>
+            <div class="liquidity-item">
+              <p><strong>MEGA:</strong></p>
+              <p>Liquidity: 1,000 USD / 300,000 MEGA</p>
+            </div>
+            <div class="liquidity-item">
+              <p><strong>ALPH:</strong></p>
+              <p>Liquidity: 1,000 USD / 450,000 ALPH</p>
+            </div>
+            <div class="liquidity-item">
+              <p><strong>BETA:</strong></p>
+              <p>Liquidity: 1,000 USD / 700,000 BETA</p>
+            </div>
+            <div class="liquidity-item">
+              <p><strong>ZETA:</strong></p>
+              <p>Liquidity: 1,000 USD / 1,000,000 ZETA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+
+      
+      <div id="home-page" class="home-page"> 
+        <h2 class="wallet-heading">Your Wallet</h2>
+        <div id="wallet-section">
+            <!-- USD Balance -->
+            <div class="wallet-card">
+                <div class="wallet-balance">
+                    <span class="wallet-label">USD Balance</span>
+                    <span class="wallet-value" id="usd-balance">1000</span>
+                </div>
+            </div>
     
-    <header>
-        <div id="header-container">
-            <h1>Styxora</h1>
-            <div id="styx-rewards-box">
-                <p id="styx-balance">Styx Balance: 0.00</p>
-                <p id="last-reward" class="reward-label">Last Reward: 0.00 Styx</p>
+            <!-- Token Balances -->
+            <div class="wallet-card">
+                <h3 class="section-title">Token Balances</h3>
+                <div class="wallet-tokens" id="token-balances">
+                    <!-- Token balances will be dynamically updated -->
+                </div>
             </div>
             
-            <div id="styx-swap-section">
-                <h3>Swap STYX</h3>
-                <input type="number" id="swap-styx-amount" placeholder="Enter STYX amount" />
-                <p id="exchange-display">$0.00 MUSD</p>
-                <button id="swap-styx-button">Swap</button>
+            <!-- Total Wallet Value -->
+            <div class="wallet-card">
+                <div class="wallet-balance">
+                    <span class="wallet-label">Total Wallet Value</span>
+                    <span class="wallet-value" id="total-wallet-value">0.00</span>
+                </div>
             </div>
-            
-            
+    
+            <!-- Current Prices -->
+            <div class="price-list" id="token-prices">
+                <h3>Current Prices</h3>
+                <!-- Token prices will be dynamically updated -->
+            </div>
+        </div>
+    </div>
+    
+      
+      
 
-    </header>
+    <div id="swap-page" class="page hidden"> 
+      <div class="swap-card">
+          <h2>Swap Tokens</h2>
+  
+          <!-- From Token Selection -->
+          <div class="swap-input">
+              <label for="swap-from">From:</label>
+              <select id="swap-from" onchange="updateSwapPrice()">
+                  <option value="USD">USD</option>
+                  <option value="CONE">CONE</option>
+                  <option value="MEGA">MEGA</option>
+                  <option value="ALPH">ALPH</option>
+                  <option value="BETA">BETA</option>
+                  <option value="ZETA">ZETA</option>
+              </select>
+          </div>
+  
+          <!-- To Token Selection -->
+          <div class="swap-input">
+              <label for="swap-to">To:</label>
+              <select id="swap-to" onchange="updateSwapPrice()">
+                  <option value="USD">USD</option>
+                  <option value="CONE">CONE</option>
+                  <option value="MEGA">MEGA</option>
+                  <option value="ALPH">ALPH</option>
+                  <option value="BETA">BETA</option>
+                  <option value="ZETA">ZETA</option>
+              </select>
+          </div>
+  
+          <!-- Amount Input -->
+          <div class="swap-input">
+              <label for="swap-amount">Amount:</label>
+              <input type="number" id="swap-amount" placeholder="Enter amount" oninput="updateSwapPrice()" />
+  
+              <!-- Percentage Buttons -->
+              <div class="swap-percentage-buttons">
+                  <button type="button" onclick="setSwapPercentage(25)">25%</button>
+                  <button type="button" onclick="setSwapPercentage(50)">50%</button>
+                  <button type="button" onclick="setSwapPercentage(75)">75%</button>
+                  <button type="button" onclick="setSwapPercentage(100)">100%</button>
+              </div>
+          </div>
+  
+          <!-- Slippage Tolerance -->
+          <div class="slippage-control">
+              <label for="slippage-tolerance">Slippage Tolerance (%):</label>
+              <input 
+                  id="slippage-tolerance" 
+                  type="number" 
+                  step="0.1" 
+                  value="1" 
+                  min="0.1" 
+                  max="10" 
+                  onchange="updateSlippageTolerance(event)" 
+                  placeholder="Enter slippage tolerance (e.g., 1%)"
+              />
+          </div>
+  
+          <!-- Swap Price Preview -->
+          <div id="swap-price-display" class="swap-preview">
+              <!-- Price information will be dynamically updated -->
+          </div>
+  
+          <!-- Swap Button -->
+          <button class="swap-button" onclick="swapTokens()">Swap</button>
+      </div>
+  </div>
+  
+  
+    
+      
+      
+    
+    
+      
+
+    <!-- DApp Explorer Page -->
+<div id="dapps-page" class="page hidden">
+  <h2 class="page-title">DApp Explorer</h2>
+
+  <div class="dapp-section">
+    <h3 class="section-title">Governance</h3>
+    <p class="section-description">Use your staked tokens to vote on proposals.</p>
+    <div class="form-group">
+      <label for="proposal-vote">Select Proposal:</label>
+      <select id="proposal-vote" class="styled-select">
+        <option value="1">Proposal 1: Increase Rewards</option>
+        <option value="2">Proposal 2: Add New Token</option>
+        <option value="3">Proposal 3: Reduce Fees</option>
+      </select>
+    </div>
+    <button class="primary-button" onclick="voteOnProposal()">Vote</button>
+  </div>
 
 
-    <div id="quests">
-        <h2>Daily Quest</h2>
-        <ul id="quest-list">
-            <!-- Quests will be dynamically populated -->
-        </ul>
+
+  <div class="dapp-section">
+    <h3 class="section-title">Lending</h3>
+    <p class="section-description">Borrow or lend tokens to earn interest.</p>
+    <div class="form-group">
+      <label for="lend-token">Select Token to Lend:</label>
+      <select id="lend-token" class="styled-select">
+        <option value="CONE">CONE</option>
+        <option value="MEGA">MEGA</option>
+        <option value="ALPH">ALPH</option>
+        <option value="BETA">BETA</option>
+        <option value="ZETA">ZETA</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="lend-amount">Amount to Lend:</label>
+      <input type="number" id="lend-amount" class="styled-input" />
+      <button class="secondary-button" onclick="lendTokens()">Lend</button>
+    </div>
+    <div class="form-group">
+      <label for="borrow-token">Select Token to Borrow:</label>
+      <select id="borrow-token" class="styled-select">
+        <option value="CONE">CONE</option>
+        <option value="MEGA">MEGA</option>
+        <option value="ALPH">ALPH</option>
+        <option value="BETA">BETA</option>
+        <option value="ZETA">ZETA</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="borrow-amount">Amount to Borrow:</label>
+      <input type="number" id="borrow-amount" class="styled-input" />
+      <button class="secondary-button" onclick="borrowTokens()">Borrow</button>
+    </div>
+  </div>
+
+  <div class="dapp-section">
+    <h3 class="section-title">Staking Dashboard</h3>
+    <div id="staking-stats" class="dashboard-panel">
+      <p>No tokens staked yet.</p>
+    </div>
+  </div>
+
+  <div class="dapp-section">
+    <h3 class="section-title">Staking</h3>
+    <p class="section-description">Stake your tokens to earn rewards.</p>
+    <div class="form-group">
+      <label for="stake-token">Select Token:</label>
+      <select id="stake-token" class="styled-select">
+        <option value="CONE">CONE</option>
+        <option value="MEGA">MEGA</option>
+        <option value="ALPH">ALPH</option>
+        <option value="BETA">BETA</option>
+        <option value="ZETA">ZETA</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="stake-amount">Amount to Stake:</label>
+      <input type="number" id="stake-amount" class="styled-input" />
+      <button class="primary-button" onclick="stakeTokens()">Stake</button>
+    </div>
+    <h4 class="sub-title">Pending Rewards</h4>
+    <div id="staking-rewards" class="dashboard-panel">
+      <p>No rewards yet.</p>
+    </div>
+    <button class="secondary-button" onclick="claimRewards()">Claim Rewards</button>
+  </div>
+
+  <div class="dapp-section">
+    <h4 class="section-title">Unstake Tokens</h4>
+    <div class="form-group">
+      <label for="unstake-token">Select Token to Unstake:</label>
+      <select id="unstake-token" class="styled-select">
+        <option value="CONE">CONE</option>
+        <option value="MEGA">MEGA</option>
+        <option value="ALPH">ALPH</option>
+        <option value="BETA">BETA</option>
+        <option value="ZETA">ZETA</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="unstake-amount">Amount to Unstake:</label>
+      <input type="number" id="unstake-amount" class="styled-input" />
+      <button class="secondary-button" onclick="unstakeTokens()">Unstake</button>
+    </div>
+  </div>
+
+  <!-- Create Your Own Token -->
+<div class="dapp-section">
+  <h3 class="section-title">Create Your Own Token</h3>
+  <p class="section-description">Fill out the details below to create your custom mock token.</p>
+  
+  <div class="token-form-container">
+    <!-- Form Fields -->
+    <div class="form-fields">
+      <div class="form-group">
+        <label for="token-name">Token Name:</label>
+        <input type="text" id="token-name" class="styled-input" placeholder="e.g., MyToken" />
+      </div>
+      <div class="form-group">
+        <label for="token-symbol">Token Symbol:</label>
+        <input type="text" id="token-symbol" class="styled-input" placeholder="e.g., MYT" />
+      </div>
+      <div class="form-group">
+        <label for="max-supply">Max Supply:</label>
+        <input type="number" id="max-supply" class="styled-input" placeholder="e.g., 100000" oninput="updateTokenPreview()" />
+      </div>
     </div>
 
-    <main>
-        <section id="price-list">
-            <h2>Real-Time Cryptocurrency Prices</h2>
-            <table>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Cryptocurrency</th>
-                            <th>Price (USD)</th>
-                            <th>Hourly % Change</th>
-                        </tr>
-                    </thead>
-                    <tbody id="crypto-data"></tbody>
-                </table>
-                
-        </section>
+    <!-- Token Preview -->
+    <div id="token-preview" class="token-preview">
+      <p><strong>Total Tokens:</strong> <span id="preview-total-tokens">0</span></p>
+      <p><strong>Initial Liquidity:</strong> $1000</p>
+      <p><strong>Initial Price per Token:</strong> $<span id="preview-price">0.00</span></p>
+    </div>
+  </div>
 
-            <h3>Styxora Balances</h3>
-            <section id="balance">
-    <h2>Styxora Wallet</h2>
-    <p id="account-balance">MUSD Balance: $100,000.00</p>
-    <p id="crypto-value" style="font-size: 1rem; color: gray;">Crypto Value: $0.00</p>
-    <p id="total-wallet-balance">Total Wallet Value: $100,000</p>
-</section>
-
-                
-            </section>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cryptocurrency</th>
-                        <th>Quantity</th>
-                        <th>Total Value (USD)</th>
-                    </tr>
-                </thead>
-                <tbody id="portfolio-data">
-                    <!-- Portfolio data will appear here -->
-                </tbody>
-            </table>
-        </section>
-
-        <section id="trading">
-            <h2>StyxSwap</h2>
-            <div>
-                <label for="crypto-select">Select a Token to Swap:</label>
-                <select id="crypto-select">
-                    <option value="bitcoin">Bitcoin</option>
-                    <option value="ethereum">Ethereum</option>
-                    <option value="binance-coin">Binance Coin</option>
-                    <option value="algorand">Algorand</option>
-                    <option value="solana">Solana</option>
-                    <option value="ripple">Ripple</option>
-                    <option value="cardano">Cardano</option>
-                    <option value="polkadot">Polkadot</option>
-                    <option value="dogecoin">Dogecoin</option>
-                </select>
-                
-            </div>
-            <div>
-                <label for="trade-amount">Enter Amount (MUSD):</label>
-            <input type="number" id="trade-amount" placeholder="Enter amount in MUSD" />
-            <p id="crypto-amount-display" class="crypto-display"></p>
-        </div>
-            <div>
-                <button id="buy-button">Buy</button>
-                <button id="sell-button">Sell</button>
-            </div>
-
-        <section id="chart">
-            <h2>Price Chart</h2>
-            <div id="tradingview-chart" style="height: 400px;"></div>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
+  <button class="primary-button" onclick="createMockToken()">Create Token</button>
+</div>
+</div>
+         
+    
+<div id="transaction-history" class="transaction-history-container">
+  <h2>Transaction History</h2>
+  <table class="transaction-table">
+      <thead>
+          <tr>
+              <th>Date</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Amount</th>
+              <th>Received</th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- Transactions will be dynamically inserted here -->
+      </tbody>
+  </table>
+  <div id="pagination-controls" style="text-align: center; margin-top: 10px;">
+      <!-- Pagination buttons will be dynamically inserted here -->
+  </div>
+</div>              
+  
+  <script src="script.js"></script>
 </body>
+
+
 </html>
