@@ -140,4 +140,4 @@ RPC endpoints for Ethereum and Binance Smart Chain via Ankr.
 For inquiries, partnerships, or feedback, please reach out:
 
 Email: support@styxora.com
-Website: www.styxora.com
+@PythTester
